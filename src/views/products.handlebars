@@ -1,0 +1,24 @@
+<h2>WELCOME {{user.first_name}}</h2>
+<h4>Your email is: {{user.email}} </h4>
+
+<h4>Productos disponibles:</h4>
+{{#each products}}
+<div>
+    <h3>{{title}}</h3>
+    <p>{{price}}</p>
+    <p>{{description}}</p>
+    <img src="{{thumbnail}}">
+    <form action="/api/carts/6546d7ea8de78809a99e181e/products/{{id}}" method="post">
+        <input onclick="event.preventDefault();" type="submit">
+    </form>
+</div>
+{{/each}}
+
+<form action="{{prevPage}}" method="get">
+<input type="submit" value="Prev Page"></input>
+</form>
+<form action="{{nextPage}}" method="get">
+<input type="submit" value="Next Page"></input>
+</form>
+
+<button><a href="/api/sessions/signout">SIGN OUT</a></button>
